@@ -5,7 +5,11 @@ deployApp () {
   return $1
 }
 
+testApp(){
+anypoint-cli
+}
 
 
 deployApp
+testApp
 echo $1
