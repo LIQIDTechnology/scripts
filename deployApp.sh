@@ -1,5 +1,4 @@
 #!/bin/bash
-export ANYPOINT_PROFILE="connAppProfile"
 
 deployApp () {
   echo "Start Deploy App"
@@ -7,7 +6,7 @@ deployApp () {
 }
 
 testApp(){
-anypoint-cli
+export ANYPOINT_PROFILE="connAppProfile"
 }
 
 function getAppsList(){
@@ -21,7 +20,8 @@ function getAppsList(){
     fi 
 
     while [[ ${apps_in_page} -gt 0 ]]; do 
-        appsJson="$(anypoint-cli runtime-mgr cloudhub-application list -o json | jq .)"
+      	 testApp
+	 appsJson="$(anypoint-cli runtime-mgr cloudhub-application list -o json | jq .)"
         apps_in_page=$(echo "$appsJson" | jq . | jq length)
         if [[ ${apps_in_page} -gt 0 ]]; then 
             APPS_LIST=$(echo "$APPS_LIST" | jq ". += $appsJson")
