@@ -1,4 +1,5 @@
 #!/bin/bash
+export ANYPOINT_PROFILE="connAppProfile"
 
 deployApp () {
   echo "Start Deploy App"
