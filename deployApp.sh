@@ -17,8 +17,11 @@ function getAppsList(){
     fi 
 
     while [[ ${apps_in_page} -gt 0 ]]; do 
-        appsJson="$(anypoint-cli runtime-mgr cloudhub-application list --limit=${limit} --offset=${offset} -o json | jq .)"
-        apps_in_page=$(echo "$appsJson" | jq . | jq length)
+        appsJson="$(anypoint-cli runtime-mgr cloudhub-application list -o json | jq .)"
+        echo "$appsJson"
+	apps_in_page=$(echo "$appsJson" | jq . | jq length)
+	 echo "Apps in Page"
+	 echo "${apps_in_page}"
         if [[ ${apps_in_page} -gt 0 ]]; then 
             APPS_LIST=$(echo "$APPS_LIST" | jq ". += $appsJson")
         fi
