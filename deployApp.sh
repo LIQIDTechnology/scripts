@@ -1,7 +1,7 @@
 #!/bin/bash
 
 deployApp () {
-  echo "Deploy App"
+  echo "Start Deploy App"
   return $1
 }
 
