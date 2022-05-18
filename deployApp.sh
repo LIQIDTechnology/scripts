@@ -31,5 +31,5 @@ function getAppsList(){
 }
 
 deployApp
-testApp
+getAppsList
 echo $1
