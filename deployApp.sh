@@ -21,9 +21,9 @@ echo "-->$out<--"
 if [ "$out" = "STARTED" ]; then
 	echo "Condition status ----->true"
 anypoint-cli runtime-mgr cloudhub-application modify "${apiName}" /app/target/*.jar --workerSize "0.1" --runtime "4.4.0" --workers "1" --output json
-
 	else
 	echo "Condition status ----->False"    
+	anypoint-cli runtime-mgr cloudhub-application deploy "${apiName}" /app/target/*.jar --workerSize "0.1" --runtime "4.4.0" --workers "1" --output json
 fi 
 
 }
