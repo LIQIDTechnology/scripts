@@ -8,13 +8,13 @@ local appName=$1
 echo "--App name->${appName}"
 local lowApp=$( echo "$appName" | tr '[:upper:]' '[:lower:]')
 echo "--Low App name->${lowApp}"
-anypoint-cli
-appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq .Status)"
+#anypoint-cli
+appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq '.Status')"
 #appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe content -o json | jq)"
 
-echo "----->App status ->$appStatus<-"
+echo "-->" $( sed -e 's/^"//' -e 's/"$//' <<<"$appStatus" )
 
-if [ "${appStatus}" == "STARTED" ]; 
+if [ $( sed -e 's/^"//' -e 's/"$//' <<<"$appStatus" ) == "STARTED" ]; 
 	then
 	echo "Condition status ----->true"
 	else
