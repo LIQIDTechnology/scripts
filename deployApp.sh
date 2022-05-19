@@ -2,7 +2,7 @@
 
 
 checkStatus(){
-#export ANYPOINT_PROFILE="connAppProfile"
+export ANYPOINT_PROFILE="connAppProfile"
 
 local appName=$1
 echo "--App name->${appName}"
