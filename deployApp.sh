@@ -1,14 +1,13 @@
 
 
 checkStatus(){
-export ANYPOINT_PROFILE="connAppProfile"
+#export ANYPOINT_PROFILE="connAppProfile"
 
 local appName=$1
 echo "--App name->${appName}"
 local lowApp=$( echo "$appName" | tr '[:upper:]' '[:lower:]')
 echo "--Low App name->${lowApp}"
 
-anypoint-cli
 
 appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq .Status)"
 
@@ -24,3 +23,4 @@ fi
 }
 
 checkStatus $1
+
