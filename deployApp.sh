@@ -2,7 +2,7 @@
 
 checkStatus(){
 #export ANYPOINT_PROFILE="connAppProfile"
-
+anypoint-cli
 local appName=$1
 echo "--App name->${appName}"
 local lowApp=$( echo "$appName" | tr '[:upper:]' '[:lower:]')
