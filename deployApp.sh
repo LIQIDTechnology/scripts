@@ -18,7 +18,7 @@ local out=$(echo "$appStatus" | sed 's/^.//;s/.$//')
 
 echo "-->$out<--"
 
-if [ "$out" == "STARTED" ]; then
+if [ "$out" = "STARTED" ]; then
 	echo "Condition status ----->true"
 	else
 	echo "Condition status ----->False"    
