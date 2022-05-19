@@ -14,7 +14,7 @@ appStatus=$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o 
 
 echo "-----> "${appStatus}
 
-if [ "${appStatus}" == '"STARTED"' ]; 
+if [ "$appStatus" == '"STARTED"' ]; 
 	then
 	echo "Condition status ----->true"
 	else
