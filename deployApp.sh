@@ -10,7 +10,7 @@ local lowApp=$( echo "$appName" | tr '[:upper:]' '[:lower:]')
 echo "--Low App name->${lowApp}"
 
 
-appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe $( echo "$appName" | tr '[:upper:]' '[:lower:]') -o json | jq .Status)"
+appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq .Status)"
 
 echo "----->App status ->$appStatus<-"
 
