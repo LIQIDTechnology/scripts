@@ -1,6 +1,6 @@
 #!/bin/bash
 
-checkStatus(){
+checkStatusAndDeploy(){
 #export ANYPOINT_PROFILE="connAppProfile"
 #source ./exports.sh
 echo "$ANYPOINT_PROFILE"
@@ -28,5 +28,5 @@ fi
 
 }
 
-checkStatus $1
+checkStatusAndDeploy $1
 
