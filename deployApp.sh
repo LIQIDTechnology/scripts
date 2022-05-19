@@ -12,7 +12,7 @@ echo "--Low App name->${lowApp}"
 appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq '.Status')"
 #appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe content -o json | jq)"
 
-echo "-->" $( sed -e 's/^"//' -e 's/"$//' <<<"$appStatus" )
+#echo "-->" $( sed -e 's/^"//' -e 's/"$//' <<<"$appStatus" )
 
 if [ $( sed -e 's/^"//' -e 's/"$//' <<<"$appStatus" ) == "STARTED" ]; 
 	then
