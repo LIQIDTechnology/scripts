@@ -1,4 +1,4 @@
-## Stagging server details
+## Staging server details
 
 export ANYPOINT_ENV=STAGING
 
