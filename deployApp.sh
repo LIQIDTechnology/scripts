@@ -8,23 +8,22 @@ local appName=$1
 local workerSize=$2
 local runTime=$3
 local workers=$4
+local override=$5
 
-echo "--App name->${appName}"
+echo "--App name-->${appName}"
 echo "--workerSize-->${workerSize}"
 echo "--runTime-->${runTime}"
 echo "--workers-->${workers}"
+echo "--override-->${override}"
 
 local lowApp=$( echo "$appName" | tr '[:upper:]' '[:lower:]')
-echo "--Low App name->${lowApp}"
-#anypoint-cli
+echo "--App name-->${lowApp}"
 #appStatus=$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq '.Status')
 #appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe content -o json | jq)"
 
 appStatus="$(anypoint-cli runtime-mgr cloudhub-application describe "$lowApp" -o json | jq .Status)"
 
 local out=$(echo "$appStatus" | sed 's/^.//;s/.$//')
-
-echo "-->$out<--"
 
 if [ "$out" = "STARTED" ]; then
 	echo "Condition status ----->true"
@@ -36,5 +35,4 @@ fi
 
 }
 
-checkStatusAndDeploy $1 $2 $3 $4
-
+checkStatusAndDeploy $1 $2 $3 $4 $5
